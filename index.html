@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instituto Nacional de Taekwondo (INAT)</title>
+<style>
+/* ----- Estilos generales ----- */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: url('escudo.png') no-repeat center top fixed;
+    background-size: 30%;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #000;
+    color: #FFD700;
+    text-align: center;
+    padding: 40px 20px 30px 20px;
+}
+
+header h1 {
+    font-size: 2.2em;
+    margin: 0;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-style: italic;
+    font-size: 1em;
+}
+
+/* Navegación */
+nav {
+    background: #000;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-bottom: 4px solid #FFD700;
+    position: relative;
+}
+
+nav a {
+    color: #FFD700;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #FFD700;
+    color: black;
+}
+
+/* Menú hamburguesa */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.menu-toggle div {
+    width: 100%;
+    height: 4px;
+    background: #FFD700;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Secciones */
+section {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(34, 34, 34, 0.85);
+    color: #FFD700;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+}
+
+h2 {
+    text-align: center;
+    border-bottom: 3px solid #FFD700;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* Sedes: siempre vertical */
+.sedes {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sede {
+    background: #FFD700;
+    color: black;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sede:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* Mapas individuales */
+.mapa iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+/* Contacto */
+.contacto a {
+    display: block;
+    margin: 5px 0;
+    color: #FFD700;
+    text-decoration: none;
+}
+
+.contacto a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background: #000;
+    color: #FFD700;
+    text-align: center;
+    padding: 20px;
+    border-top: 4px solid #FFD700;
+}
+
+/* Botón volver arriba */
+.volver-arriba {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background: #FFD700;
+    color: black;
+    border-radius: 50%;
+    font-size: 24px;
+    text-align: center;
+    line-height: 50px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+    z-index: 1000;
+}
+
+.volver-arriba:hover {
+    transform: scale(1.2);
+    background: #FFC700;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+    body { background-size: 40%; }
+    header h1 { font-size: 2em; }
+    nav a { padding: 0.8rem 1rem; font-size: 0.9rem; }
+    section { margin: 30px 15px; padding: 20px; }
+}
+
+@media (max-width: 600px) {
+    body { background-size: 50%; background-position: center top; }
+    header h1 { font-size: 1.6em; }
+    nav { flex-direction: column; align-items: flex-start; border-bottom: none; display: none; }
+    nav.active { display: flex; }
+    nav a { padding: 0.7rem; width: 100%; text-align: left; }
+    .menu-toggle { display: flex; position: absolute; right: 20px; top: 15px; }
+    .mapa iframe { height: 250px; }
+}
+
+@media (max-width: 400px) {
+    body { background-size: 60%; }
+    header h1 { font-size: 1.4em; }
+    section { padding: 15px; }
+    .volver-arriba { width: 40px; height: 40px; font-size: 20px; line-height: 40px; }
+}
+
+#inicio p { text-align: justify; }
+.sede h3 { text-align: center; }
+.sede p strong { display: inline-block; margin-bottom: 5px; font-size: 1.1em; }
+.badge-horario { background: #000; color: #FFD700; font-size: 1em; padding: 8px 15px; border-radius: 12px; display: inline-block; margin-top: 5px; }
+</style>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+<body>
+
+<header>
+    <h1>Instituto Nacional de Taekwondo (INAT)</h1>
+</header>
+
+<div class="menu-toggle" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<nav id="menu">
+    <a href="#inicio">Inicio</a>
+    <a href="#sedes">Ubicaciones</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<section id="inicio">
+    <h2>Inicio</h2>
+    <p>Somos una organización dedicada a la enseñanza del Taekwondo y promotores del Arte Marcial. Con más de 40 años de experiencia, guiamos a niños, jóvenes y adultos hacia una vida equilibrada y con valores sólidos como Respeto y Disciplina.</p>
+    <p>Nuestros directores y profesores son capacitados y certificados constantemente, participando en clínicas y seminarios para garantizar la mejor enseñanza posible.</p>
+</section>
+
+<section id="sedes">
+    <h2>Sedes y Horarios</h2>
+    <div class="sedes">
+
+        <div class="sede">
+            <h3>INAT Atarasquillo</h3>
+            <p><strong>Dirección:</strong> Delegación de Santa María Atarasquillo</p>
+            <span class="badge-horario"><i class="bi bi-calendar-event"></i> Martes y Jueves | <i class="bi bi-clock"></i> 5:00 PM – 6:30 PM</span>
+            <div class="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d536.7548978861039!2d-99.46071651100132!3d19.32695404092623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20be3aa377099%3A0x51b2d3c1be459bea!2sDelegaci%C3%B3n%20Municipal%20Santa%20Mar%C3%ADa%20Atarasquillo!5e0!3m2!1ses-419!2smx!4v1760369682313!5m2!1ses-419!2smx" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="sede">
+            <h3>INAT Chignahuapan</h3>
+            <p><strong>Dirección:</strong> Delegación de Santa Cruz Chignahuapan</p>
+            <span class="badge-horario"><i class="bi bi-calendar-event"></i> Lunes y Jueves | <i class="bi bi-clock"></i> 3:30 PM – 4:30 PM</span>
+            <div class="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3033.7708315041446!2d-99.48375277480702!3d19.312725751016394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cdf58ce71686b5%3A0xb3d3bd859ce520f0!2sSanta%20Cruz%20Chignahuapan!5e1!3m2!1ses-419!2smx!4v1760370066806!5m2!1ses-419!2smx" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="sede">
+            <h3>INAT San Nicolás</h3>
+            <p><strong>Dirección:</strong> Delegación de San Nicolás Peralta</p>
+            <span class="badge-horario"><i class="bi bi-calendar-event"></i> Lunes y Miércoles | <i class="bi bi-clock"></i> 4:30 PM – 5:30 PM</span>
+            <div class="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d591.5157186467497!2d-99.48381953578675!3d19.358877069232307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20a48d19287f1%3A0xa4b33b3cf2e5d60e!2sIglesia%20de%20San%20Nicolas%20Peralta!5e1!3m2!1ses-419!2smx!4v1760370222030!5m2!1ses-419!2smx" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="sede">
+            <h3>INAT Alberca Atarasquillo</h3>
+            <p><strong>Dirección:</strong> Alberca de Santa María Atarasquillo</p>
+            <span class="badge-horario"><i class="bi bi-calendar-event"></i> Martes y Jueves | <i class="bi bi-clock"></i> 4:00 PM – 5:00 PM</span>
+            <div class="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d473.33955794087706!2d-99.4732791637315!3d19.333982000386793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20bee5c3e3d73%3A0xd58b5ca46efd2392!2sAlberca%20Atarasquillo!5e1!3m2!1ses-419!2smx!4v1760370255413!5m2!1ses-419!2smx" loading="lazy"></iframe>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="contacto">
+    <h2>Contacto de Maestros</h2>
+    <div class="contacto">
+        <div class="mb-4">
+            <h3><i class="bi bi-person-circle"></i> Mtra. Iris Cruz Clemente</h3>
+            <p><i class="bi bi-telephone"></i> 722 794 3150</p>
+            <a href="https://wa.me/7227943150" target="_blank"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        </div>
+
+        <div class="mb-4">
+            <h3><i class="bi bi-person-circle"></i> Mtro. Jeshua Nahum Pérez</h3>
+            <p><i class="bi bi-telephone"></i> 729 124 9339</p>
+            <a href="https://wa.me/7291249339" target="_blank"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        </div>
+
+        <div>
+            <h3><i class="bi bi-person-circle"></i> Mtro. Ricardo Vázquez Gaytán</h3>
+            <p><i class="bi bi-telephone"></i> 729 119 8358</p>
+            <a href="https://wa.me/7291198358" target="_blank"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Instituto Nacional de Taekwondo | Todos los derechos reservados</p>
+</footer>
+
+<a href="#inicio" class="volver-arriba" title="Volver arriba"><i class="bi bi-arrow-up-circle-fill"></i></a>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
