@@ -222,30 +222,56 @@ html {
     section { margin: 30px 15px; padding: 20px; }
 }
 
+/* Solo para pantallas móviles */
 @media (max-width: 700px) {
+
     .header-container {
-        flex-direction: row;
-        justify-content: space-between;
+        display: flex;
+        justify-content: space-between; /* espacio entre título y menú */
         align-items: center;
     }
 
-    header h1 {
+    /* Título ocupa 80% del ancho */
+    .header-container h1 {
+        flex: 0 0 90%;
         font-size: 1.4em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         gap: 8px;
+        margin: 0;
     }
 
-    header h1 img {
-        width: 50px;
+    /* Ocultar segunda imagen del título si quieres */
+    .header-container h1 img:last-child {
+        display: none;
     }
 
+    /* Menú hamburguesa ocupa 20% del ancho */
     .menu-toggle {
         display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* menos separación */
+        gap: 3px; /* ajusta según quieras */
+        width: 30px;
+        height: 22px;
+        cursor: pointer;
     }
 
+    .menu-toggle div {
+        width: 25px;      /* ancho de las barras */
+        height: 4px;      /* grosor de las barras */
+        background: #FFD700;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+
+    /* Menú desplegable */
     nav {
         display: none;
         flex-direction: column;
-        align-items: flex-start;
+        width: 100%;
+        margin-top: 10px;
     }
 
     nav.active {
@@ -259,13 +285,11 @@ html {
         border-top: 1px solid rgba(255, 215, 0, 0.3);
     }
 
-    /* ----- Fondo amarillo y letras blancas al pasar o tocar ----- */
     nav a:hover,
     nav a:active {
         background: #FFD700;
         color: white;
     }
-    
 }
 
 @media (max-width: 400px) {
