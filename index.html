@@ -314,7 +314,112 @@ html {
     color: #FFFFFF; /* color brillante al pasar */
     text-shadow: 0 0 8px #FFD700, 0 0 12px #FFD700; /* efecto "brillo" */
 }
+.ventana-material {
+    display: none; /* Oculta por defecto */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7); /* Fondo semitransparente */
+    z-index: 2000;
+    overflow: auto;
+    padding-top: 50px;
+}
 
+.ventana-contenido {
+    background-color: rgba(34,34,34,0.95);
+    margin: auto;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 900px;
+    color: #FFD700;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+
+.ventana-contenido h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cerrar {
+    color: #FFD700;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.cerrar:hover {
+    color: #FFC700;
+}
+
+.material-sedes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 70vh; /* Altura máxima para scroll */
+    overflow-y: auto;
+}
+
+.material-sedes .sede {
+    background: rgba(255,215,0,0.2);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,215,0,0.4);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+.numeros-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.numero-card {
+    background: #FFD700;
+    color: #000;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    width: 100%;
+    max-width: 120px;
+}
+
+.numero-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    background: #FFC700;
+}
+
+.numero-card h4 {
+    margin: 5px 0;
+    font-size: 1.3em;
+}
+
+.numero-card p {
+    margin: 5px 0 10px;
+    font-size: 1em;
+}
+
+.numero-card button {
+    background: #000;
+    color: #FFD700;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.numero-card button:hover {
+    background: #222;
+    transform: scale(1.1);
+}
 </style>
 </head>
 
@@ -339,6 +444,7 @@ html {
     <a href="#inicio">Inicio</a>
     <a href="#sedes">Ubicaciones</a>
     <a href="#contacto">Contacto</a>
+    <a href="#" onclick="abrirMaterial()">Material para el Alumno</a>
 </nav>
 
 <section id="inicio">
@@ -419,6 +525,149 @@ html {
     </div>
 </section>
 
+<!-- Contenedor de la ventana emergente -->
+<div id="ventanaMaterial" class="ventana-material">
+    <div class="ventana-contenido">
+        <span class="cerrar" onclick="cerrarMaterial()">&times;</span>
+        <h2>Material para el Alumno</h2>
+        <div class="material-sedes">
+
+            <div class="sede">
+                <h3>Números en Coreano 🇰🇷</h3>
+                <p>Aprende a contar del 1 al 10 y luego del 20 al 100 de 10 en 10.</p>
+
+                <h4>Del 1 al 10</h4>
+                <div class="numeros-container">
+                    <div class="numero-card">
+                        <h4>1</h4>
+                        <p>하나 (Hana)</p>
+                        <button onclick="playAudio('hana')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>2</h4>
+                        <p>둘 (Dul)</p>
+                        <button onclick="playAudio('dul')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>3</h4>
+                        <p>셋 (Set)</p>
+                        <button onclick="playAudio('set')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>4</h4>
+                        <p>넷 (Net)</p>
+                        <button onclick="playAudio('net')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>5</h4>
+                        <p>다섯 (Daseot)</p>
+                        <button onclick="playAudio('daseot')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>6</h4>
+                        <p>여섯 (Yeoseot)</p>
+                        <button onclick="playAudio('yeoseot')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>7</h4>
+                        <p>일곱 (Ilgop)</p>
+                        <button onclick="playAudio('ilgop')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>8</h4>
+                        <p>여덟 (Yeodeol)</p>
+                        <button onclick="playAudio('yeodeol')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>9</h4>
+                        <p>아홉 (Ahop)</p>
+                        <button onclick="playAudio('ahop')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>10</h4>
+                        <p>열 (Yeol)</p>
+                        <button onclick="playAudio('yeol')">🔊</button>
+                    </div>
+                </div>
+
+                <h4>Del 20 al 100 (de 10 en 10)</h4>
+                <div class="numeros-container">
+                    <div class="numero-card">
+                        <h4>20</h4>
+                        <p>스물 (Seumul)</p>
+                        <button onclick="playAudio('seumul')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>30</h4>
+                        <p>서른 (Seoreun)</p>
+                        <button onclick="playAudio('seoreun')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>40</h4>
+                        <p>마흔 (Maheun)</p>
+                        <button onclick="playAudio('maheun')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>50</h4>
+                        <p>쉰 (Swin)</p>
+                        <button onclick="playAudio('swin')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>60</h4>
+                        <p>예순 (Yesun)</p>
+                        <button onclick="playAudio('yesun')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>70</h4>
+                        <p>일흔 (Ilheun)</p>
+                        <button onclick="playAudio('ilheun')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>80</h4>
+                        <p>여든 (Yeodeun)</p>
+                        <button onclick="playAudio('yeodeun')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>90</h4>
+                        <p>아흔 (Aheun)</p>
+                        <button onclick="playAudio('aheun')">🔊</button>
+                    </div>
+                    <div class="numero-card">
+                        <h4>100</h4>
+                        <p>백 (Baek)</p>
+                        <button onclick="playAudio('baek')">🔊</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sede">
+                <h3>Guía de Taekwondo Básico</h3>
+                <p>Manual en PDF con técnicas fundamentales y reglas básicas.</p>
+                <a href="material/guia_basico.pdf" target="_blank" class="badge-horario">
+                    <i class="bi bi-download"></i> Descargar PDF
+                </a>
+            </div>
+
+            <div class="sede">
+                <h3>Videos de Práctica</h3>
+                <p>Serie de videos para practicar formas y movimientos en casa.</p>
+                <a href="https://www.youtube.com/playlist?list=TU_PLAYLIST_ID" target="_blank" class="badge-horario">
+                    <i class="bi bi-play-circle"></i> Ver videos
+                </a>
+            </div>
+
+            <div class="sede">
+                <h3>Cartilla de Valores</h3>
+                <p>Documento sobre Respeto, Disciplina y otros valores importantes.</p>
+                <a href="material/cartilla_valores.pdf" target="_blank" class="badge-horario">
+                    <i class="bi bi-download"></i> Descargar PDF
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <footer>
     <p>© 2025 Instituto Nacional de Taekwondo | Todos los derechos reservados</p>
 </footer>
@@ -433,6 +682,30 @@ function toggleMenu() {
     menu.classList.toggle('active');
 }
 </script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function abrirMaterial() {
+    document.getElementById('ventanaMaterial').style.display = 'block';
+}
 
+function cerrarMaterial() {
+    document.getElementById('ventanaMaterial').style.display = 'none';
+}
+
+// Cerrar al hacer clic fuera del contenido
+window.onclick = function(event) {
+    const ventana = document.getElementById('ventanaMaterial');
+    if (event.target == ventana) {
+        ventana.style.display = "none";
+    }
+}
+</script>
+<script>
+function playAudio(nombre) {
+    const audio = new Audio(`audio/${nombre}.mp3`);
+    audio.play();
+}
+</script>
 </body>
 </html>
