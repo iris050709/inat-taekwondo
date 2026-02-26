@@ -420,6 +420,86 @@ html {
     background: #222;
     transform: scale(1.1);
 }
+/* SOLO ESTILOS INTERNOS */
+
+.contenido-guia h4 {
+    margin-top: 35px;
+    margin-bottom: 18px;
+    font-weight: 700;
+    font-size: 18px;
+    position: relative;
+    padding-left: 12px;
+}
+.contenido-guia li small {
+    color: #070000;
+}
+
+.contenido-guia h4::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    height: 18px;
+    width: 4px;
+    background: #111111;
+    border-radius: 2px;
+}
+
+.contenido-guia ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+}
+
+.contenido-guia li {
+    background: #FFD700;
+    padding: 14px 16px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    color: #000000; 
+}
+
+.contenido-guia li:hover {
+    background: #FFC700;
+    transform: translateY(-3px);
+}
+
+.contenido-guia li span {
+    font-weight: 600;
+}
+
+.contenido-guia li small {
+    font-weight: 400;
+    color: #000000;
+    margin-left: 6px;
+}
+
+.btn-audio {
+    background: #111;
+    color: #000000;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-audio:hover {
+    background: #333;
+    transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .contenido-guia ul {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 </head>
 
@@ -533,8 +613,7 @@ html {
         <div class="material-sedes">
 
             <div class="sede">
-                <h3>Números en Coreano 🇰🇷</h3>
-                <p>Aprende a contar del 1 al 10 y luego del 20 al 100 de 10 en 10.</p>
+                <h3>Números en Coreano</h3>
 
                 <h4>Del 1 al 10</h4>
                 <div class="numeros-container">
@@ -641,27 +720,293 @@ html {
             </div>
 
             <div class="sede">
-                <h3>Guía de Taekwondo Básico</h3>
-                <p>Manual en PDF con técnicas fundamentales y reglas básicas.</p>
-                <a href="material/guia_basico.pdf" target="_blank" class="badge-horario">
-                    <i class="bi bi-download"></i> Descargar PDF
-                </a>
+                <h3>📘 Diccionario de Taekwondo</h3>
+                <p>Términos en coreano con significado y audio (sin números)</p>
+
+                <div class="contenido-guia">
+
+                    <!-- Palabras Fundamentales -->
+                    <h4>🔹 Palabras Fundamentales</h4>
+                    <ul>
+                        <li>TAEKWONDO (Patada-puño-arte)</li>
+                        <li>KORYO (Corea) <button onclick="playAudio('koryo')" class="btn-audio">🔊</button></li>
+                        <li>KUK KI (Bandera) <button onclick="playAudio('kukki')" class="btn-audio">🔊</button></li>
+                        <li>KUKIWON (Cuartel general) <button onclick="playAudio('kukiwon')" class="btn-audio">🔊</button></li>
+                        <li>CHE-YU-KWAN (Gimnasio) <button onclick="playAudio('cheyukwan')" class="btn-audio">🔊</button></li>
+                        <li>GAM SA JAM NI DA (Gracias) <button onclick="playAudio('gamsajamnida')" class="btn-audio">🔊</button></li>
+                        <li>CHU KA JAM NI DA (Enhorabuena) <button onclick="playAudio('chukajamnida')" class="btn-audio">🔊</button></li>
+                        <li>AN YONG JA SE YO (Hola) <button onclick="playAudio('anyongjaseyo')" class="btn-audio">🔊</button></li>
+                        <li>AN YONG JI GUE SIP SI YO (Adiós) <button onclick="playAudio('anyongjiguesipsiyo')" class="btn-audio">🔊</button></li>
+                        <li>TI (Cinturón) <button onclick="playAudio('ti')" class="btn-audio">🔊</button></li>
+                        <li>SA BOM NIM (Maestro) <button onclick="playAudio('sabomnim')" class="btn-audio">🔊</button></li>
+                        <li>CHOKIO (Monitor) <button onclick="playAudio('chokio')" class="btn-audio">🔊</button></li>
+                        <li>NO (No) <button onclick="playAudio('no')" class="btn-audio">🔊</button></li>
+                        <li>NE (Sí) <button onclick="playAudio('ne')" class="btn-audio">🔊</button></li>
+                        <li>MI AN JAM NI DA (Lo siento) <button onclick="playAudio('mianjamnida')" class="btn-audio">🔊</button></li>
+                        <li>DO BOK (Traje de taekwondo) <button onclick="playAudio('dobok')" class="btn-audio">🔊</button></li>
+                        <li>KWAN-CHANG-NIM (Decano de Maestros) <button onclick="playAudio('kwanchangnim')" class="btn-audio">🔊</button></li>
+                        <li>SA BOM NIM QUE KIONÑE (Saludo al maestro) <button onclick="playAudio('sabomnimquekionne')" class="btn-audio">🔊</button></li>
+                        <li>DOJANG (Sala de entrenamiento) <button onclick="playAudio('dojang')" class="btn-audio">🔊</button></li>
+                    </ul>
+
+                    <!-- Acciones -->
+                    <h4>🔹 Acciones</h4>
+                    <ul>
+                        <li>SOGUI (Posición) <button onclick="playAudio('sogui')" class="btn-audio">🔊</button></li>
+                        <li>MAKI (Defensa) <button onclick="playAudio('maki')" class="btn-audio">🔊</button></li>
+                        <li>YOSOK DONG YA (Combinación) <button onclick="playAudio('yosokdongya')" class="btn-audio">🔊</button></li>
+                        <li>CHIRGUI (Pinchar) <button onclick="playAudio('chirgui')" class="btn-audio">🔊</button></li>
+                        <li>JIRUGUI (Golpear) <button onclick="playAudio('jirugui')" class="btn-audio">🔊</button></li>
+                        <li>BITURO (Retorcerse) <button onclick="playAudio('bituro')" class="btn-audio">🔊</button></li>
+                        <li>CHEBIPOM (Llegar más lejos) <button onclick="playAudio('chebipom')" class="btn-audio">🔊</button></li>
+                        <li>CHON CHIN (Adelante, avanzar) <button onclick="playAudio('chonchin')" class="btn-audio">🔊</button></li>
+                        <li>CHECHO (Mano hacia arriba) <button onclick="playAudio('checho')" class="btn-audio">🔊</button></li>
+                        <li>TUIO (Salto) <button onclick="playAudio('tuio')" class="btn-audio">🔊</button></li>
+                        <li>GECHO (Manos se cruzan al salir) <button onclick="playAudio('gecho')" class="btn-audio">🔊</button></li>
+                        <li>GODURO (Una mano ayuda a la otra) <button onclick="playAudio('goduro')" class="btn-audio">🔊</button></li>
+                        <li>GONG KIOK (Ataque) <button onclick="playAudio('gongkiok')" class="btn-audio">🔊</button></li>
+                        <li>CHAGUI (Patada) <button onclick="playAudio('chagui')" class="btn-audio">🔊</button></li>
+                        <li>KIOPA (Rompimiento) <button onclick="playAudio('kiopa')" class="btn-audio">🔊</button></li>
+                        <li>CHIGUI (Pegar) <button onclick="playAudio('chigui')" class="btn-audio">🔊</button></li>
+                        <li>PIJAGUI (Esquivar) <button onclick="playAudio('pijagui')" class="btn-audio">🔊</button></li>
+                    </ul>
+
+                    <!-- Órdenes -->
+                    <h4>🔹 Órdenes</h4>
+                    <ul>
+                        <li>KIONÑE (Saludo) <button onclick="playAudio('kionne')" class="btn-audio">🔊</button></li>
+                        <li>CHUMBI (Preparados) <button onclick="playAudio('chumbi')" class="btn-audio">🔊</button></li>
+                        <li>GUMAN (Final) <button onclick="playAudio('guman')" class="btn-audio">🔊</button></li>
+                        <li>SHIO (Descanso) <button onclick="playAudio('shio')" class="btn-audio">🔊</button></li>
+                        <li>CHARIOT (Atención, firmes) <button onclick="playAudio('chariot')" class="btn-audio">🔊</button></li>
+                        <li>SI CHAK (Comenzar) <button onclick="playAudio('sichak')" class="btn-audio">🔊</button></li>
+                        <li>KIAP (Grito) <button onclick="playAudio('kiap')" class="btn-audio">🔊</button></li>
+                        <li>ANYO (Sentarse) <button onclick="playAudio('anyo')" class="btn-audio">🔊</button></li>
+                    </ul>
+
+                    <!-- Partes del cuerpo -->
+                    <h4>🔹 Partes del Cuerpo</h4>
+                    <ul>
+                        <li>OLGUL (Parte alta) <button onclick="playAudio('olgul')" class="btn-audio">🔊</button></li>
+                        <li>MONTONG (Parte media) <button onclick="playAudio('montong')" class="btn-audio">🔊</button></li>
+                        <li>ARE (Parte baja) <button onclick="playAudio('are')" class="btn-audio">🔊</button></li>
+                        <li>MOM (Cuerpo) <button onclick="playAudio('mom')" class="btn-audio">🔊</button></li>
+                        <li>GWUANGJA (Sien) <button onclick="playAudio('gwuangja')" class="btn-audio">🔊</button></li>
+                        <li>EL KUL (Cara) <button onclick="playAudio('elkul')" class="btn-audio">🔊</button></li>
+                        <li>OKE (Hombro) <button onclick="playAudio('oke')" class="btn-audio">🔊</button></li>
+                        <li>BE (Abdomen) <button onclick="playAudio('be')" class="btn-audio">🔊</button></li>
+                        <li>NUN (Ojo) <button onclick="playAudio('nun')" class="btn-audio">🔊</button></li>
+                        <li>MOK (Cuello) <button onclick="playAudio('mok')" class="btn-audio">🔊</button></li>
+                        <li>BAL (Pie) <button onclick="playAudio('bal')" class="btn-audio">🔊</button></li>
+                    </ul>
+
+                    <!-- Combate -->
+                    <h4>🔹 Combate</h4>
+                    <ul>
+                        <li>HONG (Rojo) <button onclick="playAudio('hong')" class="btn-audio">🔊</button></li>
+                        <li>KYORUGUI CHUMBI (Preparados) <button onclick="playAudio('kyoruguichumbi')" class="btn-audio">🔊</button></li>
+                        <li>KALYO (Separarse) <button onclick="playAudio('kalyo')" class="btn-audio">🔊</button></li>
+                        <li>GUMAN (Final) <button onclick="playAudio('guman')" class="btn-audio">🔊</button></li>
+                        <li>KYESI (Tiempo médico 1') <button onclick="playAudio('kyesi')" class="btn-audio">🔊</button></li>
+                        <li>KYONGO (Amonestación) <button onclick="playAudio('kyongo')" class="btn-audio">🔊</button></li>
+                        <li>WOO-SE-KIROK (Rellenar tarjeta superioridad) <button onclick="playAudio('woosekirok')" class="btn-audio">🔊</button></li>
+                        <li>YU SHIM (Árbitro) <button onclick="playAudio('yushim')" class="btn-audio">🔊</button></li>
+                        <li>SON SU (Competidor) <button onclick="playAudio('sonsu')" class="btn-audio">🔊</button></li>
+                        <li>JOGU (Peto) <button onclick="playAudio('jogu')" class="btn-audio">🔊</button></li>
+                        <li>PAL POHODE (Antebrazos) <button onclick="playAudio('palpohode')" class="btn-audio">🔊</button></li>
+                        <li>MORI POHODE (Casco) <button onclick="playAudio('moripohode')" class="btn-audio">🔊</button></li>
+                        <li>HOE JUM (Asalto) <button onclick="playAudio('hoejum')" class="btn-audio">🔊</button></li>
+                        <li>CHONG SUNG (Vencedor Azul) <button onclick="playAudio('chongsung')" class="btn-audio">🔊</button></li>
+                        <li>CHONG (Azul) <button onclick="playAudio('chong')" class="btn-audio">🔊</button></li>
+                        <li>SI CHAK (Comenzar) <button onclick="playAudio('sichak')" class="btn-audio">🔊</button></li>
+                        <li>KYESOK (Continuar) <button onclick="playAudio('kyesok')" class="btn-audio">🔊</button></li>
+                        <li>SIGAN (Tiempo) <button onclick="playAudio('sigan')" class="btn-audio">🔊</button></li>
+                        <li>TUE CHANG (Descalificación) <button onclick="playAudio('tuechang')" class="btn-audio">🔊</button></li>
+                        <li>KAMCHONG (Amonestación grave) <button onclick="playAudio('kamchong')" class="btn-audio">🔊</button></li>
+                        <li>BU SHIM (Juez) <button onclick="playAudio('bushim')" class="btn-audio">🔊</button></li>
+                        <li>SIMPAN JYONG (Reglas de competición) <button onclick="playAudio('simpanjyong')" class="btn-audio">🔊</button></li>
+                        <li>KIONG KI CHANG (Zona de competición) <button onclick="playAudio('kiongkichang')" class="btn-audio">🔊</button></li>
+                        <li>NANSIM POHODE (Coquilla) <button onclick="playAudio('nansimpohode')" class="btn-audio">🔊</button></li>
+                        <li>CHUNGENG POHODE (Espinillera) <button onclick="playAudio('chungengpohode')" class="btn-audio">🔊</button></li>
+                        <li>I PAL POHODE (Protector bucal) <button onclick="playAudio('ipalpohode')" class="btn-audio">🔊</button></li>
+                        <li>DEUK JUM (Punto válido) <button onclick="playAudio('deukjum')" class="btn-audio">🔊</button></li>
+                        <li>HONG SUNG (Vencedor Rojo) <button onclick="playAudio('hongsung')" class="btn-audio">🔊</button></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="sede">
+                <h3>Posiciones y Defensas</h3>
+                <p>Video explicativo de técnicas básicas de Taekwondo:</p>
+
+                <!-- Botón centrado y con diseño mejorado -->
+                <div style="text-align:center;">
+                    <button 
+                        class="btn btn-danger" 
+                        onclick="abrirVideoPopup()" 
+                        style="
+                            display:inline-flex; 
+                            align-items:center; 
+                            gap:10px; 
+                            padding:12px 25px; 
+                            font-size:16px; 
+                            font-weight:600; 
+                            border-radius:8px;
+                            transition: all 0.3s ease;
+                        "
+                        onmouseover="this.style.backgroundColor='#c82333'; this.style.transform='scale(1.05)';"
+                        onmouseout="this.style.backgroundColor='#dc3545'; this.style.transform='scale(1)';"
+                    >
+                        <i class="bi bi-youtube"></i> Ver Video
+                    </button>
+                </div>
             </div>
 
             <div class="sede">
-                <h3>Videos de Práctica</h3>
-                <p>Serie de videos para practicar formas y movimientos en casa.</p>
-                <a href="https://www.youtube.com/playlist?list=TU_PLAYLIST_ID" target="_blank" class="badge-horario">
-                    <i class="bi bi-play-circle"></i> Ver videos
-                </a>
+                <h3>Principales Kichos (Formas Básicas)</h3>
+                <p>Video explicativo de técnicas básicas de Taekwondo: Kicho 1 a 4</p>
+
+                <!-- Kicho 1 -->
+                <div style="margin-bottom:20px;">
+                    <h4>Kicho Cho Dan (Kicho 1)</h4>
+                    <p>Coreano: 기초 초단<br>Pronunciación: <strong>Kicho Cho Dan</strong>
+                        <button onclick="playAudio('hongsung')" class="btn-audio">🔊</button>
+                    </p>
+                    <p>Significado: Primera forma básica, 20 movimientos, defensa baja y golpes al centro en posición larga (ap koobi)</p>
+                    <button class="btn btn-danger" onclick="window.open('https://youtu.be/-xVHvD91COQ','_blank','width=800,height=450,top=100,left=100,resizable=yes,scrollbars=yes')">
+                        <i class="bi bi-youtube"></i> Ver Video
+                    </button>
+                </div>
+
+                <!-- Kicho 2 -->
+                <div style="margin-bottom:20px;">
+                    <h4>Kicho I Dan (Kicho 2)</h4>
+                    <p>Coreano: 기초 이단<br>Pronunciación: <strong>Kicho I Dan</strong>
+                        <button onclick="playAudio('idan')" class="btn-audio">🔊</button>
+                    </p>
+                    <p>Significado: Introduce variaciones en defensas y contraataques, posiciones de retroceso y defensas medias</p>
+                    <button class="btn btn-danger" onclick="window.open('https://youtu.be/klQJZS_Hrfk','_blank','width=800,height=450,top=100,left=100,resizable=yes,scrollbars=yes')">
+                        <i class="bi bi-youtube"></i> Ver Video
+                    </button>
+                </div>
+
+                <!-- Kicho 3 -->
+                <div style="margin-bottom:20px;">
+                    <h4>Kicho Sam Dan (Kicho 3)</h4>
+                    <p>Coreano: 기초 삼단<br>Pronunciación: <strong>Kicho Sam Dan</strong>
+                        <button onclick="playAudio('samdan')" class="btn-audio">🔊</button>
+                    </p>
+                    <p>Significado: Incluye defensa media, ap chagi (patada frontal) y golpes de puño</p>
+                    <button class="btn btn-danger" onclick="window.open('https://youtu.be/eG9cwmwm0kE','_blank','width=800,height=450,top=100,left=100,resizable=yes,scrollbars=yes')">
+                        <i class="bi bi-youtube"></i> Ver Video
+                    </button>
+                </div>
+
+                <!-- Kicho 4 -->
+                <div style="margin-bottom:20px;">
+                    <h4>Kicho Sa Dan (Kicho 4)</h4>
+                    <p>Coreano: 기초 사단<br>Pronunciación: <strong>Kicho Sa Dan</strong>
+                        <button onclick="playAudio('sadan')" class="btn-audio">🔊</button>
+                    </p>
+                    <p>Significado: Introduce técnicas más complejas antes de pasar a los Palgwes</p>
+                    <button class="btn btn-danger" onclick="window.open('https://youtu.be/kvmIXwY21IQ?si=eTJ2YlFv8gia77gi','_blank','width=800,height=450,top=100,left=100,resizable=yes,scrollbars=yes')">
+                        <i class="bi bi-youtube"></i> Ver Video
+                    </button>
+                </div>
             </div>
 
             <div class="sede">
-                <h3>Cartilla de Valores</h3>
-                <p>Documento sobre Respeto, Disciplina y otros valores importantes.</p>
-                <a href="material/cartilla_valores.pdf" target="_blank" class="badge-horario">
-                    <i class="bi bi-download"></i> Descargar PDF
-                </a>
+                <h3>Serie Taegeuk (Formas de Taekwondo)</h3>
+                <p>Video explicativo de cada forma Taegeuk (1 a 8)</p>
+
+                <!-- Taegeuk 1 -->
+                <div style="margin-bottom:20px;">
+                    <h4>Taegeuk 1</h4>
+                    <p>Coreano: 태극 1장 — Pronunciación: <strong>Taegeuk Il Jang</strong>
+                        <button onclick="playAudio('taegeuk1')" class="btn-audio">🔊</button>
+                    </p>
+                    <button class="btn btn-danger" onclick="window.open('https://youtu.be/_0DcGl__vOc','_blank','width=800,height=450,top=100,left=100,resizable=yes,scrollbars=yes')">
+                        <i class="bi bi-youtube"></i> Ver Video
+                    </button>
+                </div>
+
+                <!-- Taegeuk 2 -->
+                <div style="margin-bottom:20px;">
+                    <h4>Taegeuk 2</h4>
+                    <p>Coreano: 태극 2장 — Pronunciación: <strong>Taegeuk I Jang</strong>
+                        <button onclick="playAudio('taegeuk2')" class="btn-audio">🔊</button>
+                    </p>
+                    <button class="btn btn-danger" onclick="window.open('https://youtu.be/cQEGgaXo11o','_blank','width=800,height=450,top=100,left=100,resizable=yes,scrollbars=yes')">
+                        <i class="bi bi-youtube"></i> Ver Video
+                    </button>
+                </div>
+
+                <!-- Taegeuk 3 -->
+                <div style="margin-bottom:20px;">
+                    <h4>Taegeuk 3</h4>
+                    <p>Coreano: 태극 3장 — Pronunciación: <strong>Taegeuk Sam Jang</strong>
+                        <button onclick="playAudio('taegeuk3')" class="btn-audio">🔊</button>
+                    </p>
+                    <button class="btn btn-danger" onclick="window.open('https://youtu.be/vze9WRdMp7E','_blank','width=800,height=450,top=100,left=100,resizable=yes,scrollbars=yes')">
+                        <i class="bi bi-youtube"></i> Ver Video
+                    </button>
+                </div>
+
+                <!-- Taegeuk 4 -->
+                <div style="margin-bottom:20px;">
+                    <h4>Taegeuk 4</h4>
+                    <p>Coreano: 태극 4장 — Pronunciación: <strong>Taegeuk Sa Jang</strong>
+                        <button onclick="playAudio('taegeuk4')" class="btn-audio">🔊</button>
+                    </p>
+                    <button class="btn btn-danger" onclick="window.open('https://youtu.be/8zS3OZbswOU','_blank','width=800,height=450,top=100,left=100,resizable=yes,scrollbars=yes')">
+                        <i class="bi bi-youtube"></i> Ver Video
+                    </button>
+                </div>
+
+                <!-- Taegeuk 5 -->
+                <div style="margin-bottom:20px;">
+                    <h4>Taegeuk 5</h4>
+                    <p>Coreano: 태극 5장 — Pronunciación: <strong>Taegeuk Oh Jang</strong>
+                        <button onclick="playAudio('taegeuk5')" class="btn-audio">🔊</button>
+                    </p>
+                    <button class="btn btn-danger" onclick="window.open('https://www.youtube.com/watch?v=6gMmif0ak-Q','_blank','width=800,height=450,top=100,left=100,resizable=yes,scrollbars=yes')">
+                        <i class="bi bi-youtube"></i> Ver Video
+                    </button>
+                </div>
+
+                <!-- Taegeuk 6 -->
+                <div style="margin-bottom:20px;">
+                    <h4>Taegeuk 6</h4>
+                    <p>Coreano: 태극 6장 — Pronunciación: <strong>Taegeuk Yook Jang</strong>
+                        <button onclick="playAudio('taegeuk6')" class="btn-audio">🔊</button>
+                    </p>
+                    <button class="btn btn-danger" onclick="window.open('https://youtube.com/shorts/1RCTohu2QFM?si=AWkiUFH1-q1I3x00','_blank','width=800,height=450,top=100,left=100,resizable=yes,scrollbars=yes')">
+                        <i class="bi bi-youtube"></i> Ver Video
+                    </button>
+                </div>
+
+                <!-- Taegeuk 7 -->
+                <div style="margin-bottom:20px;">
+                    <h4>Taegeuk 7</h4>
+                    <p>Coreano: 태극 7장 — Pronunciación: <strong>Taegeuk Chil Jang</strong>
+                        <button onclick="playAudio('taegeuk7')" class="btn-audio">🔊</button>
+                    </p>
+                    <button class="btn btn-danger" onclick="window.open('https://youtu.be/aWzuAEjhMNg','_blank','width=800,height=450,top=100,left=100,resizable=yes,scrollbars=yes')">
+                        <i class="bi bi-youtube"></i> Ver Video
+                    </button>
+                </div>
+
+                <!-- Taegeuk 8 -->
+                <div style="margin-bottom:20px;">
+                    <h4>Taegeuk 8</h4>
+                    <p>Coreano: 태극 8장 — Pronunciación: <strong>Taegeuk Pal Jang</strong>
+                        <button onclick="playAudio('taegeuk8')" class="btn-audio">🔊</button>
+                    </p>
+                    <button class="btn btn-danger" onclick="window.open('https://youtu.be/y5HoNvDhyUI','_blank','width=800,height=450,top=100,left=100,resizable=yes,scrollbars=yes')">
+                        <i class="bi bi-youtube"></i> Ver Video
+                    </button>
+                </div>
+
             </div>
 
         </div>
@@ -699,6 +1044,20 @@ window.onclick = function(event) {
     if (event.target == ventana) {
         ventana.style.display = "none";
     }
+}
+
+function abrirVideoPopup() {
+    const url = "https://youtu.be/deVBXw15tcE";
+    const ancho = 800; // ancho de la ventana
+    const alto = 450;  // alto de la ventana
+    const izquierda = (window.screen.width - ancho) / 2;
+    const arriba = (window.screen.height - alto) / 2;
+
+    window.open(
+        url,
+        "_blank",
+        `width=${ancho},height=${alto},top=${arriba},left=${izquierda},resizable=yes,scrollbars=yes`
+    );
 }
 </script>
 <script>
